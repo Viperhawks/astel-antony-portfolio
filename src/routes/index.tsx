@@ -207,35 +207,93 @@ function Hero() {
         </div>
 
         <div className="perspective relative mx-auto w-full max-w-md reveal">
-          <div ref={cardRef} className="preserve-3d relative aspect-[4/5] w-full transition-transform duration-200 ease-out will-change-transform">
-            <div className="glass-strong noise relative h-full w-full overflow-hidden rounded-[2rem]">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/0 to-white/5" />
-              {/* rotating ring */}
-              <div className="absolute -right-10 -top-10 h-48 w-48 animate-spin-slow rounded-full border border-dashed border-white/15" />
-              <div className="absolute -left-6 bottom-10 h-32 w-32 animate-spin-slow rounded-full border border-dashed border-white/10" style={{ animationDirection: "reverse" }} />
-              {/* photo */}
+          <div ref={cardRef} className="preserve-3d relative aspect-square w-full transition-transform duration-200 ease-out will-change-transform">
+            {/* Outer rotating dashed ring */}
+            <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-white/20" />
+            {/* Mid rotating ring with ticks */}
+            <div className="absolute inset-6 animate-spin-slow rounded-full border border-white/10" style={{ animationDirection: "reverse", animationDuration: "40s" }}>
+              {Array.from({ length: 12 }).map((_, i) => (
+                <span
+                  key={i}
+                  className="absolute left-1/2 top-0 h-2 w-px -translate-x-1/2 bg-white/30"
+                  style={{ transform: `rotate(${i * 30}deg) translateY(-1px)`, transformOrigin: "50% 50vmin" }}
+                />
+              ))}
+            </div>
+
+            {/* Crosshair guides */}
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute left-1/2 top-0 h-3 w-px -translate-x-1/2 bg-white/30" />
+              <div className="absolute left-1/2 bottom-0 h-3 w-px -translate-x-1/2 bg-white/30" />
+              <div className="absolute top-1/2 left-0 h-px w-3 -translate-y-1/2 bg-white/30" />
+              <div className="absolute top-1/2 right-0 h-px w-3 -translate-y-1/2 bg-white/30" />
+            </div>
+
+            {/* Corner brackets */}
+            {[
+              "top-2 left-2 border-l border-t",
+              "top-2 right-2 border-r border-t",
+              "bottom-2 left-2 border-l border-b",
+              "bottom-2 right-2 border-r border-b",
+            ].map((c) => (
+              <span key={c} className={`absolute h-5 w-5 border-white/40 ${c}`} />
+            ))}
+
+            {/* Portrait disc */}
+            <div className="absolute inset-[12%] overflow-hidden rounded-full" style={{ transform: "translateZ(40px)" }}>
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(circle at 50% 35%, rgba(255,255,255,0.18), rgba(255,255,255,0.04) 55%, transparent 75%), conic-gradient(from 200deg, #1a1a1a, #2a2a2a, #0a0a0a, #1a1a1a)",
+                }}
+              />
+              {/* Halftone dots */}
+              <div
+                className="absolute inset-0 opacity-40 mix-blend-overlay"
+                style={{
+                  backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1.5px)",
+                  backgroundSize: "10px 10px",
+                  maskImage: "radial-gradient(circle at 50% 60%, black 30%, transparent 70%)",
+                  WebkitMaskImage: "radial-gradient(circle at 50% 60%, black 30%, transparent 70%)",
+                }}
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/20" />
               <img
                 src={profileAsset.url}
                 alt="Astel Antony"
-                className="absolute inset-x-0 bottom-0 mx-auto h-[92%] w-auto object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]"
-                style={{ transform: "translateZ(60px)" }}
+                className="absolute inset-x-0 bottom-0 mx-auto h-[105%] w-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.7)]"
               />
-              {/* floating badges */}
-              <FloatingBadge className="left-4 top-6" style={{ transform: "translateZ(80px)" }} delay="0s">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Role</span>
-                <span className="text-sm font-medium">GenAI · Sec</span>
-              </FloatingBadge>
-              <FloatingBadge className="right-4 top-20" style={{ transform: "translateZ(100px)" }} delay="-2s">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Stack</span>
-                <span className="text-sm font-medium">Python · Firebase</span>
-              </FloatingBadge>
-              <FloatingBadge className="bottom-6 left-4" style={{ transform: "translateZ(90px)" }} delay="-4s">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Based</span>
-                <span className="text-sm font-medium">Kerala, IN</span>
-              </FloatingBadge>
+              {/* status pill on portrait */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1 text-[11px] font-mono">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+                online
+              </div>
             </div>
+
+            {/* Orbiting glass chips */}
+            <OrbitChip className="-top-2 left-8" delay="0s" style={{ transform: "translateZ(90px)" }}>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">v.01</span>
+              <span className="text-sm font-medium">GenAI · Sec</span>
+            </OrbitChip>
+            <OrbitChip className="top-1/3 -right-4" delay="-2s" style={{ transform: "translateZ(120px)" }}>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">stack</span>
+              <span className="text-sm font-medium">Python · Firebase</span>
+            </OrbitChip>
+            <OrbitChip className="bottom-2 left-2" delay="-4s" style={{ transform: "translateZ(100px)" }}>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">geo</span>
+              <span className="text-sm font-medium">Kerala, IN</span>
+            </OrbitChip>
+            <OrbitChip className="bottom-10 -right-2" delay="-1s" style={{ transform: "translateZ(110px)" }}>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">id</span>
+              <span className="text-sm font-medium">AA · 2026</span>
+            </OrbitChip>
           </div>
+
+          {/* base shadow */}
+          <div className="pointer-events-none absolute -bottom-6 left-1/2 h-10 w-3/4 -translate-x-1/2 rounded-full bg-black/60 blur-2xl" />
         </div>
+
       </div>
 
       <Marquee />
@@ -259,17 +317,18 @@ function ShimmerText({ children }: { children: React.ReactNode }) {
   );
 }
 
-function FloatingBadge({
+function OrbitChip({
   children, className = "", style, delay = "0s",
 }: { children: React.ReactNode; className?: string; style?: React.CSSProperties; delay?: string }) {
   return (
     <div
-      className={`absolute glass animate-float rounded-2xl px-3 py-2 ${className}`}
+      className={`absolute glass-strong animate-float rounded-2xl px-3 py-2 ${className}`}
       style={{ animationDelay: delay, ...style }}
     >
       <div className="flex flex-col leading-tight">{children}</div>
     </div>
   );
+
 }
 
 function Marquee() {
