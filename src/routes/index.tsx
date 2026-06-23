@@ -317,17 +317,18 @@ function ShimmerText({ children }: { children: React.ReactNode }) {
   );
 }
 
-function FloatingBadge({
+function OrbitChip({
   children, className = "", style, delay = "0s",
 }: { children: React.ReactNode; className?: string; style?: React.CSSProperties; delay?: string }) {
   return (
     <div
-      className={`absolute glass animate-float rounded-2xl px-3 py-2 ${className}`}
+      className={`absolute glass-strong animate-float rounded-2xl px-3 py-2 ${className}`}
       style={{ animationDelay: delay, ...style }}
     >
       <div className="flex flex-col leading-tight">{children}</div>
     </div>
   );
+
 }
 
 function Marquee() {
