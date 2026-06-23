@@ -25,16 +25,19 @@ const skills = {
 };
 
 const experience = [
+  { role: "AI Engineering Intern", org: "Iplairani", period: "2026 — Present", body: "Working as an AI Engineer, focusing on the development and implementation of artificial intelligence models and workflows." },
   { role: "Cybersecurity Intern", org: "Unified Mentor Pvt Ltd", period: "2026 — Present", body: "Practical security learning, assessment methodologies, vulnerability analysis and defensive security." },
   { role: "AI Fluency Intern", org: "FlyRank AI", period: "2026 — Present", body: "AI-driven workflows and generative AI tooling. Supporting AI adoption and productivity systems." },
   { role: "Founder & Infrastructure Lead", org: "Squadron X Esports", period: "2024 — Present", body: "Founded a gaming community platform. Built server infra, policies and moderation frameworks." },
 ];
 
 const projects = [
+  { name: "Deccan AI Experts ML Training", tag: "AI / ML · Ongoing", body: "An immersive machine learning training program focused on developing advanced models and practical AI solutions." },
   { name: "Selah — Bible Platform", tag: "Web · AI", body: "A Bible-focused web platform integrating modern web tech with AI-driven features for accessibility and engagement." },
   { name: "Security Audit Analyst AI", tag: "AI · Security", body: "An AI-assisted security analysis tool exploring automated assessment workflows for researchers." },
   { name: "Developer Portfolio", tag: "Web", body: "Personal portfolio showcasing projects, certifications, and technical growth.", href: "https://viperhawks.github.io/AA.Dev/" },
 ];
+
 
 const certs = [
   "Google AI Essentials",
@@ -196,7 +199,7 @@ function Hero() {
             {[
               { k: "10+", v: "Projects" },
               { k: "7+", v: "Certifications" },
-              { k: "2", v: "Internships" },
+              { k: "3", v: "Internships" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl font-semibold">{s.k}</dt>
