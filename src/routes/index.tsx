@@ -199,7 +199,7 @@ function Hero() {
             {[
               { k: "10+", v: "Projects" },
               { k: "7+", v: "Certifications" },
-              { k: "2", v: "Internships" },
+              { k: "3", v: "Internships" },
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl font-semibold">{s.k}</dt>
