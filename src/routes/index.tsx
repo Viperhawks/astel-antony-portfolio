@@ -262,8 +262,9 @@ function Hero() {
               <img
                 src={profileAsset.url}
                 alt="Astel Antony"
-                className="absolute inset-x-0 bottom-0 mx-auto h-[105%] w-auto object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.7)]"
+                className="absolute left-1/2 bottom-[-2%] h-[88%] w-auto -translate-x-1/2 object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.7)]"
               />
+
               {/* status pill on portrait */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1 text-[11px] font-mono">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
