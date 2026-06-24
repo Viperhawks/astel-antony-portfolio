@@ -36,6 +36,7 @@ const projects = [
   { name: "Selah — Bible Platform", tag: "Web · AI", body: "A Bible-focused web platform integrating modern web tech with AI-driven features for accessibility and engagement." },
   { name: "Security Audit Analyst AI", tag: "AI · Security", body: "An AI-assisted security analysis tool exploring automated assessment workflows for researchers." },
   { name: "Developer Portfolio", tag: "Web", body: "Personal portfolio showcasing projects, certifications, and technical growth.", href: "https://viperhawks.github.io/AA.Dev/" },
+  { name: "Python Login System", tag: "Backend / Security · Completed", body: "A secure Python-based login authentication system built for the Brototype Code to Career challenge, featuring user credential handling and secure access logic.", href: "https://github.com/Viperhawks/python-ogin-project" },
 ];
 
 
