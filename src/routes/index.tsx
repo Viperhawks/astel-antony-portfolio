@@ -32,6 +32,7 @@ const experience = [
 ];
 
 const projects = [
+  { name: "Melora — Premium Open-Source Music Player", tag: "React · Web Audio · Open Source", body: "A high-fidelity music streaming web app with glassmorphic UI, real-time frequency visualizer, scrolling lyrics, and adaptive responsive layout. Built with React 19, Vite, and the Web Audio API, deployed on Vercel." },
   { name: "Deccan AI Experts ML Training", tag: "AI / ML · Ongoing", body: "An immersive machine learning training program focused on developing advanced models and practical AI solutions." },
   { name: "Selah — Bible Platform", tag: "Web · AI", body: "A Bible-focused web platform integrating modern web tech with AI-driven features for accessibility and engagement." },
   { name: "Security Audit Analyst AI", tag: "AI · Security", body: "An AI-assisted security analysis tool exploring automated assessment workflows for researchers." },
