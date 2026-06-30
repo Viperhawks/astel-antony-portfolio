@@ -88,6 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Portfolio of Astel Antony — aspiring Generative AI Engineer and Cybersecurity professional from Kerala, India." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4764af89-e800-46f2-9b92-6628a8623e6f" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4764af89-e800-46f2-9b92-6628a8623e6f" },
+      { name: "google-site-verification", content: "pU4oKyds-pYIJQZFQc2EZEVUNrvjQe1ObAXGK_9yMQw" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
