@@ -186,7 +186,11 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#projects" className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-background transition hover:-translate-y-0.5">
+            <a href="/Astel_Antony_Resume.docx" download className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-background transition hover:-translate-y-0.5 shadow-[0_10px_40px_-10px_rgba(255,255,255,0.4)]">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Download CV
+            </a>
+            <a href="#projects" className="group inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5">
               View projects
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
