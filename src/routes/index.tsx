@@ -32,6 +32,7 @@ const experience = [
 ];
 
 const projects = [
+  { name: "Padikam — AI Learning Companion", tag: "Next.js · Gemini AI · PWA", body: "An AI-powered learning companion for Kerala State Syllabus students. Features interactive SCERT/NCERT chapter decks, a context-aware Gemini tutor, previous years' exam archive, and gamified math training with progress tracking.", href: "https://padikam.vercel.app/" },
   { name: "Melora — Premium Open-Source Music Player", tag: "React · Web Audio · Open Source", body: "A high-fidelity music streaming web app with glassmorphic UI, real-time frequency visualizer, scrolling lyrics, and adaptive responsive layout. Built with React 19, Vite, and the Web Audio API, deployed on Vercel.", href: "https://melora.vercel.app/" },
   { name: "Gospel — Daily Bible PWA", tag: "PWA · Offline-First · Glassmorphic", body: "A premium offline-first Progressive Web App for daily worship and scripture study. Includes daily devotions, a full offline Bible reader, interactive kids' stories, a prayer journal with micro-animations, and liturgical news.", href: "https://gospel-daily-bible.vercel.app/" },
   { name: "Deccan AI Experts ML Training", tag: "AI / ML · Ongoing", body: "An immersive machine learning training program focused on developing advanced models and practical AI solutions." },
