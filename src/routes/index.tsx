@@ -162,7 +162,7 @@ function Hero() {
             <img
               src={profileAsset.url}
               alt="Astel Antony"
-              className="absolute inset-0 h-full w-full object-cover object-[85%_55%] grayscale contrast-110 md:object-[80%_45%]"
+              className="absolute inset-0 h-full w-full object-cover object-[85%_15%] grayscale contrast-110 md:object-[80%_10%]"
             />
             {/* Dark cinematic gradient wash — keeps face visible on right */}
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent md:via-black/40" />
