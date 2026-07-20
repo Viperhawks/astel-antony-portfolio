@@ -127,6 +127,26 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .hero-title {
+    left: 1.25rem;
+    top: 18.75rem;
+    max-width: 82%;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      left: 2.5rem;
+      top: 6rem;
+      max-width: 52%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-title {
+      top: 7rem;
+    }
+  }
 }
 
 @keyframes float-y {
