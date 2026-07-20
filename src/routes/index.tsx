@@ -167,9 +167,9 @@ function Hero() {
               />
             </div>
             {/* Dark cinematic gradient wash — reserves the title zone without hiding the face */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/5 md:via-black/35" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/10 to-transparent" />
-            <div className="absolute inset-y-0 left-0 w-[64%] bg-gradient-to-r from-black via-black/75 to-transparent md:w-[52%]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-black/0 md:from-black md:via-black/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/5 to-transparent" />
+            <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-black/90 via-black/55 to-transparent md:w-[52%] md:from-black md:via-black/75" />
             {/* Film grain */}
             <div className="noise absolute inset-0" />
 
@@ -190,11 +190,11 @@ function Hero() {
             </ul>
 
             {/* Massive stacked headline */}
-            <div className="absolute left-5 top-20 max-w-[58%] md:left-10 md:top-24 md:max-w-[52%] lg:top-28">
+            <div className="absolute left-5 top-[300px] max-w-[76%] md:left-10 md:top-24 md:max-w-[52%] lg:top-28">
               <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.35em] text-white/55 md:text-xs">
                 AI · Cybersecurity · Founder
               </p>
-              <h1 className="font-display text-[4rem] font-bold uppercase leading-[0.88] text-white md:text-[7.5vw] lg:text-[8.25rem]">
+              <h1 className="font-display text-[3.55rem] font-bold uppercase leading-[0.88] text-white md:text-[7.5vw] lg:text-[8.25rem]">
                 <span className="block">Astel</span>
                 <span className="block">Antony</span>
                 <span className="block text-white/80">Engineer</span>
