@@ -190,7 +190,7 @@ function Hero() {
             </ul>
 
             {/* Massive stacked headline */}
-            <div className="hero-title absolute">
+            <div className="absolute left-5 top-[320px] max-w-[82%] md:left-10 md:top-24 md:max-w-[52%] lg:top-28">
               <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.35em] text-white/55 md:text-xs">
                 AI · Cybersecurity · Founder
               </p>
