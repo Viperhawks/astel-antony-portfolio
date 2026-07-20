@@ -130,7 +130,6 @@ function Nav() {
 }
 
 function Hero() {
-  const cardRef = useRef<HTMLDivElement>(null);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -144,67 +143,104 @@ function Hero() {
     return () => clearInterval(id);
   }, []);
 
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const handle = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      el.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateZ(0)`;
-    };
-    const reset = () => { el.style.transform = "rotateY(0) rotateX(0)"; };
-    el.addEventListener("mousemove", handle);
-    el.addEventListener("mouseleave", reset);
-    return () => {
-      el.removeEventListener("mousemove", handle);
-      el.removeEventListener("mouseleave", reset);
-    };
-  }, []);
+  const sideLinks = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#experience", label: "Work" },
+    { href: "#projects", label: "Projects" },
+    { href: "#certifications", label: "Education" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   return (
-    <section id="top" className="relative px-6 pt-36 pb-24 md:pt-44 md:pb-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
-        <div className="reveal">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 font-mono text-xs">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            Available for internships · {time}
+    <section id="top" className="relative px-4 pt-24 pb-16 md:px-8 md:pt-28">
+      <div className="mx-auto max-w-[1400px]">
+        {/* Cinematic frame */}
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-neutral-950 reveal">
+          {/* Portrait as full-bleed background */}
+          <div className="relative aspect-[16/11] w-full md:aspect-[16/9]">
+            <img
+              src={profileAsset.url}
+              alt="Astel Antony"
+              className="absolute inset-0 h-full w-full object-cover object-[70%_center] grayscale contrast-110"
+            />
+            {/* Dark cinematic gradient wash */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
+            {/* Film grain */}
+            <div className="noise absolute inset-0" />
+
+            {/* Top-right minimal nav */}
+            <div className="absolute right-6 top-6 flex items-center gap-6 font-mono text-xs uppercase tracking-widest text-white/70 md:right-10 md:top-8">
+              <a href="mailto:tintupro1@gmail.com" className="story-link hover:text-white">Mail</a>
+              <a href="https://linkedin.com/in/astel-antony-bb757831a" target="_blank" rel="noreferrer" className="story-link hidden hover:text-white sm:inline">LinkedIn</a>
+              <a href="https://github.com/Viperhawks" target="_blank" rel="noreferrer" className="story-link hover:text-white">GitHub</a>
+            </div>
+
+            {/* Right-side vertical section links */}
+            <ul className="absolute right-6 top-1/2 hidden -translate-y-1/2 flex-col items-end gap-3 font-mono text-sm text-white/70 md:right-10 md:flex">
+              {sideLinks.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="story-link hover:text-white">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Massive stacked headline */}
+            <div className="absolute left-5 top-16 md:left-10 md:top-20 lg:top-24">
+              <h1 className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-white text-[15vw] md:text-[11vw] lg:text-[9.5vw]">
+                <span className="block">Astel</span>
+                <span className="block">Antony</span>
+                <span className="block text-white/85">Engineer</span>
+              </h1>
+            </div>
+
+            {/* Bottom-left caption */}
+            <div className="absolute bottom-5 left-5 max-w-[80%] md:bottom-8 md:left-10 md:max-w-md">
+              <p className="text-[11px] leading-relaxed text-white/70 md:text-xs">
+                Astel is an aspiring Generative AI engineer and cybersecurity
+                practitioner from Kerala — founder of Padikam, shipping AI
+                tools, web platforms, and security-focused work.
+              </p>
+            </div>
+
+            {/* Bottom-right live status */}
+            <div className="absolute bottom-5 right-5 hidden items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-white/70 md:bottom-8 md:right-10 md:flex">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              Available · {time}
+            </div>
+
+            {/* Corner brackets for techy accent */}
+            {[
+              "top-3 left-3 border-l border-t",
+              "top-3 right-3 border-r border-t",
+              "bottom-3 left-3 border-l border-b",
+              "bottom-3 right-3 border-r border-b",
+            ].map((c) => (
+              <span key={c} className={`absolute h-4 w-4 border-white/40 ${c}`} />
+            ))}
           </div>
+        </div>
 
-          <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl lg:text-[5.5rem]">
-            <span className="block text-gradient">Astel Antony.</span>
-            <span className="block text-muted-foreground">Building with</span>
-            <span className="block">
-              <ShimmerText>AI + Security.</ShimmerText>
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-            Aspiring Generative AI engineer and cybersecurity practitioner from Kerala.
-            I prototype AI agents, ship web platforms, and break things to learn how to defend them.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+        {/* CTA row + stats under the frame */}
+        <div className="mt-8 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <div className="flex flex-wrap items-center gap-3">
             <a href="/Astel_Antony_Resume.docx" download className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-background transition hover:-translate-y-0.5 shadow-[0_10px_40px_-10px_rgba(255,255,255,0.4)]">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
               Download CV
             </a>
             <a href="#projects" className="group inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5">
-              View projects
-              <span className="transition-transform group-hover:translate-x-1">→</span>
+              View projects <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a href="#contact" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5">
               Get in touch
             </a>
-            <a href="https://github.com/Viperhawks" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5">
-              GitHub ↗
-            </a>
           </div>
 
-          <dl className="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-white/10 pt-6">
+          <dl className="grid grid-cols-3 gap-6 md:gap-10">
             {[
               { k: "10+", v: "Projects" },
               { k: "7+", v: "Certifications" },
@@ -212,101 +248,11 @@ function Hero() {
             ].map((s) => (
               <div key={s.v}>
                 <dt className="font-display text-3xl font-semibold">{s.k}</dt>
-                <dd className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{s.v}</dd>
+                <dd className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{s.v}</dd>
               </div>
             ))}
           </dl>
         </div>
-
-        <div className="perspective relative mx-auto w-full max-w-md reveal">
-          <div ref={cardRef} className="preserve-3d relative aspect-square w-full transition-transform duration-200 ease-out will-change-transform">
-            {/* Outer rotating dashed ring */}
-            <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-white/20" />
-            {/* Mid rotating ring with ticks */}
-            <div className="absolute inset-6 animate-spin-slow rounded-full border border-white/10" style={{ animationDirection: "reverse", animationDuration: "40s" }}>
-              {Array.from({ length: 12 }).map((_, i) => (
-                <span
-                  key={i}
-                  className="absolute left-1/2 top-0 h-2 w-px -translate-x-1/2 bg-white/30"
-                  style={{ transform: `rotate(${i * 30}deg) translateY(-1px)`, transformOrigin: "50% 50vmin" }}
-                />
-              ))}
-            </div>
-
-            {/* Crosshair guides */}
-            <div className="pointer-events-none absolute inset-0">
-              <div className="absolute left-1/2 top-0 h-3 w-px -translate-x-1/2 bg-white/30" />
-              <div className="absolute left-1/2 bottom-0 h-3 w-px -translate-x-1/2 bg-white/30" />
-              <div className="absolute top-1/2 left-0 h-px w-3 -translate-y-1/2 bg-white/30" />
-              <div className="absolute top-1/2 right-0 h-px w-3 -translate-y-1/2 bg-white/30" />
-            </div>
-
-            {/* Corner brackets */}
-            {[
-              "top-2 left-2 border-l border-t",
-              "top-2 right-2 border-r border-t",
-              "bottom-2 left-2 border-l border-b",
-              "bottom-2 right-2 border-r border-b",
-            ].map((c) => (
-              <span key={c} className={`absolute h-5 w-5 border-white/40 ${c}`} />
-            ))}
-
-            {/* Portrait disc */}
-            <div className="absolute inset-[12%] overflow-hidden rounded-full" style={{ transform: "translateZ(40px)" }}>
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(circle at 50% 35%, rgba(255,255,255,0.18), rgba(255,255,255,0.04) 55%, transparent 75%), conic-gradient(from 200deg, #1a1a1a, #2a2a2a, #0a0a0a, #1a1a1a)",
-                }}
-              />
-              {/* Halftone dots */}
-              <div
-                className="absolute inset-0 opacity-40 mix-blend-overlay"
-                style={{
-                  backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1.5px)",
-                  backgroundSize: "10px 10px",
-                  maskImage: "radial-gradient(circle at 50% 60%, black 30%, transparent 70%)",
-                  WebkitMaskImage: "radial-gradient(circle at 50% 60%, black 30%, transparent 70%)",
-                }}
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/20" />
-              <img
-                src={profileAsset.url}
-                alt="Astel Antony"
-                className="absolute left-1/2 bottom-[-2%] h-[88%] w-auto -translate-x-1/2 object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.7)]"
-              />
-
-              {/* status pill on portrait */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full glass-strong px-3 py-1 text-[11px] font-mono">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
-                online
-              </div>
-            </div>
-
-            {/* Orbiting glass chips */}
-            <OrbitChip className="-top-2 left-8" delay="0s" style={{ transform: "translateZ(90px)" }}>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">v.01</span>
-              <span className="text-sm font-medium">GenAI · Sec</span>
-            </OrbitChip>
-            <OrbitChip className="top-1/3 -right-4" delay="-2s" style={{ transform: "translateZ(120px)" }}>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">stack</span>
-              <span className="text-sm font-medium">Python · Firebase</span>
-            </OrbitChip>
-            <OrbitChip className="bottom-2 left-2" delay="-4s" style={{ transform: "translateZ(100px)" }}>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">geo</span>
-              <span className="text-sm font-medium">Kerala, IN</span>
-            </OrbitChip>
-            <OrbitChip className="bottom-10 -right-2" delay="-1s" style={{ transform: "translateZ(110px)" }}>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">id</span>
-              <span className="text-sm font-medium">AA · 2026</span>
-            </OrbitChip>
-          </div>
-
-          {/* base shadow */}
-          <div className="pointer-events-none absolute -bottom-6 left-1/2 h-10 w-3/4 -translate-x-1/2 rounded-full bg-black/60 blur-2xl" />
-        </div>
-
       </div>
 
       <Marquee />
