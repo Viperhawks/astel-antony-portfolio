@@ -158,15 +158,18 @@ function Hero() {
         {/* Cinematic frame */}
         <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-neutral-950 reveal">
           {/* Portrait as full-bleed background */}
-          <div className="relative aspect-[16/11] w-full md:aspect-[16/9]">
-            <img
-              src={profileAsset.url}
-              alt="Astel Antony"
-              className="absolute inset-0 h-full w-full object-cover object-[85%_0%] grayscale contrast-110 md:object-[80%_0%]"
-            />
-            {/* Dark cinematic gradient wash — keeps face visible on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent md:via-black/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+          <div className="relative min-h-[620px] w-full md:aspect-[16/9] md:min-h-[680px] lg:min-h-[720px]">
+            <div className="absolute inset-y-0 right-0 w-full md:w-[68%]">
+              <img
+                src={profileAsset.url}
+                alt="Astel Antony"
+                className="h-full w-full object-cover object-[62%_0%] grayscale contrast-110 md:object-[56%_0%]"
+              />
+            </div>
+            {/* Dark cinematic gradient wash — reserves the title zone without hiding the face */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/5 md:via-black/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/10 to-transparent" />
+            <div className="absolute inset-y-0 left-0 w-[64%] bg-gradient-to-r from-black via-black/75 to-transparent md:w-[52%]" />
             {/* Film grain */}
             <div className="noise absolute inset-0" />
 
@@ -187,20 +190,22 @@ function Hero() {
             </ul>
 
             {/* Massive stacked headline */}
-            <div className="absolute left-5 top-16 md:left-10 md:top-20 lg:top-24">
-              <h1 className="font-display font-bold uppercase leading-[0.85] tracking-[-0.03em] text-white text-[15vw] md:text-[11vw] lg:text-[9.5vw]">
+            <div className="absolute left-5 top-20 max-w-[58%] md:left-10 md:top-24 md:max-w-[52%] lg:top-28">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.35em] text-white/55 md:text-xs">
+                AI · Cybersecurity · Founder
+              </p>
+              <h1 className="font-display text-[4rem] font-bold uppercase leading-[0.88] text-white md:text-[7.5vw] lg:text-[8.25rem]">
                 <span className="block">Astel</span>
                 <span className="block">Antony</span>
-                <span className="block text-white/85">Engineer</span>
+                <span className="block text-white/80">Engineer</span>
               </h1>
             </div>
 
             {/* Bottom-left caption */}
-            <div className="absolute bottom-5 left-5 max-w-[80%] md:bottom-8 md:left-10 md:max-w-md">
-              <p className="text-[11px] leading-relaxed text-white/70 md:text-xs">
-                Astel is an aspiring Generative AI engineer and cybersecurity
-                practitioner from Kerala — founder of Padikam, shipping AI
-                tools, web platforms, and security-focused work.
+            <div className="absolute bottom-5 left-5 max-w-[88%] md:bottom-8 md:left-10 md:max-w-lg">
+              <p className="text-xs leading-relaxed text-white/72 md:text-sm">
+                Generative AI engineer and cybersecurity practitioner from Kerala,
+                building polished AI products, learning platforms, and secure web systems.
               </p>
             </div>
 
@@ -321,25 +326,25 @@ function About() {
   return (
     <section id="about" className="relative px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader tag="01 · About" title="A motivated builder at the edge of AI and security." />
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="glass reveal rounded-3xl p-6 md:col-span-2">
-            <p className="text-lg leading-relaxed text-foreground/90">
-              I'm Astel — currently exploring how generative AI and cybersecurity intersect.
-              I build AI-powered tools, prototype web platforms, and audit systems for fun and learning.
-              I'm recognized for academic excellence, leadership (NCC cadet, Best Outgoing Student),
-              and shipping projects while still in school.
+        <SectionHeader tag="01 · About Me" title="I build AI products with a security-first mindset." />
+        <div className="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
+          <div className="glass reveal rounded-[24px] p-6 md:p-8">
+            <p className="text-xl leading-relaxed text-foreground/92 md:text-2xl">
+              I'm Astel Antony, an aspiring Generative AI engineer, cybersecurity learner,
+              and founder of Padikam. I design and build polished web products that combine
+              practical AI workflows, clean interfaces, and secure engineering habits.
             </p>
-            <p className="mt-4 text-muted-foreground">
-              Looking for internship and entry-level opportunities with AI startups, technology
-              companies, and cybersecurity teams.
+            <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">
+              My work spans AI learning companions, music streaming interfaces, offline-first PWAs,
+              and security-focused tools. I am actively looking for internship and entry-level
+              opportunities with AI startups, technology companies, and cybersecurity teams.
             </p>
           </div>
-          <div className="glass reveal rounded-3xl p-6">
+          <div className="glass reveal rounded-[24px] p-6 md:p-8">
             <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Quick facts</div>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex justify-between border-b border-white/10 pb-2"><span>Location</span><span className="font-mono">Kerala, IN</span></li>
-              <li className="flex justify-between border-b border-white/10 pb-2"><span>Focus</span><span className="font-mono">GenAI · Sec</span></li>
+              <li className="flex justify-between border-b border-white/10 pb-2"><span>Focus</span><span className="font-mono">GenAI · Security</span></li>
               <li className="flex justify-between border-b border-white/10 pb-2"><span>Status</span><span className="font-mono text-emerald-400">Open</span></li>
               <li className="flex justify-between"><span>Education</span><span className="font-mono">Higher Sec.</span></li>
             </ul>
